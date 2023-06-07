@@ -1,0 +1,85 @@
+/* CSS Variables */
+:root {
+    --perspective: 60rem;
+    --font-size: 4.25rem;
+    --split-position: 49%;
+    --split-thickness: 4px;
+    --split-color: #e26060c1;
+}
+
+/* Font settings */
+font-settings {
+    font-family: "Gilroy ExtraBold", system-ui, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-font-kerning: normal;
+    -webkit-text-size-adjust: 100%;
+}
+
+/* HTML and Body */
+html,
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    background: linear-gradient(45deg, #d97b3c, #f6fa0586);
+    transform-style: preserve-3d;
+    transform: perspective(var(--perspective));
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
+
+/* Menu <ul> */
+.Menu-list {
+    font-size: var(--font-size);
+    line-height: 1.2;
+    text-transform: uppercase;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: rotateX(-40deg) rotateY(20deg);
+    list-style-type: none;
+    
+}
+
+/* Menu item */
+.Menu-list-item {
+    position: relative;
+    color: transparent;
+    cursor: pointer;
+    
+    
+}
+
+
+
+/* Top/bottom mask */
+.Mask {
+    display: block;
+    position: absolute;
+    overflow: hidden;
+    color: var(--split-color);
+    top: 0;
+    height: var(--split-position);
+    transition: all 2s cubic-bezier(0.16, 1.08, 0.38, 0.98) ;
+}
+.Menu-list-item:hover{
+    color: #1F1B4E;
+    
+    
+    font-size: 100px;
+    overflow: visible;
+}
+.A:hover{
+    left: 100px;
+}
+.B:hover{
+    right: 100px;
+}

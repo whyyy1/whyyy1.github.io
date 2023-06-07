@@ -6,29 +6,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tieran Dysart's Portfolio</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <script type="module" src="index.js"></script>
 </head>
 
 <body>
-    <header>
-        <section>
-            <h1>Tieran Dysart</h1>
-            <nav>Nav Bar</nav>
-        </section>
-    </header>
-    <section>
-        <h3>About Me</h3>
-    </section>
-    <section>
-        <h3>Projects</h3>
-    </section>
-    <section>
+    <div class="Menu">
+        <ul class="Menu-list" data-offset="10">
+            <li class="Menu-list-item A" data-offset="20">
+                
+                <a class="Mask"   href="home.html">Home</a>
+                Home
 
-        <article>
-            Contact Me
-        </article>
-    </section>
-    <footer>@ThynkDifferently</footer>
+                
+            </li>
+            <li class="Menu-list-item B" data-offset="16">
+                About
+                <a class="Mask"  href="home.html#aboutSec">About</a>
+                
 
+               
+            </li>
+            <li class="Menu-list-item A" data-offset="12" onclick>
+                
+                <a class="Mask"  href="home.html#projectSec">Projects</a>
+                Projects
+                
+            <li class="Menu-list-item B" data-offset="8" onclick>
+                Contact
+                <a class="Mask" href="home.html#contactSec">Contact</a>
+                
+            </li>
+        </ul>
+    </div>
 </body>
 
 </html>
