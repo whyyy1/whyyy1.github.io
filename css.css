@@ -1,14 +1,20 @@
 * {
     background-color: rgba(230, 228, 228, 0.724);
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX27VqnFdy3tp45XHqahQMze9mfQID08AqdKfZE8GW&s") ;
+    background-repeat: no-repeat;
+     background-attachment: fixed;
+  background-position: center; 
 }
 
-#headerSec {
-    border: 1px solid black;
-    height: 800px;
-}
-#aboutSec {
+#bodyContainer {
     display: flex;
     flex-direction: row;
+    border: 14px solid orange;
+
+}
+#aboutSec {
+    flex:1;
+    
     
     border: 1px solid green;
 }
@@ -17,9 +23,11 @@
     width: 500px;
 }
 #projectSec {
+    flex:2;
     border: 1px solid blue;
 }
 #contactSec {
+    flex:3;
     height: 400px;
     
     border: 1px solid red;
@@ -28,6 +36,6 @@
     font-size: 200px;
 }
 
-i:hover{
+/* i:hover{
     font-size: 45px;
-}
+} */

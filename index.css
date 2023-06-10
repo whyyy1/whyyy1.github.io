@@ -1,11 +1,19 @@
 /* CSS Variables */
+
 :root {
     --perspective: 60rem;
     --font-size: 4.25rem;
-    --split-position: 49%;
+    --split-position:29%;
     --split-thickness: 4px;
-    --split-color: #e26060c1;
+    --split-color: #ffffffc1;
+    /* background-color: rgba(230, 228, 228, 0.225); */
+    /* background-image: url("https://cdn.wallpapersafari.com/86/96/z1vP0M.gif") ;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover; */
 }
+
+
 
 /* Font settings */
 font-settings {
@@ -25,7 +33,7 @@ body {
 }
 
 body {
-    background: linear-gradient(45deg, #d97b3c, #f6fa0586);
+    background: linear-gradient(50deg, #3b0144c4, #131313);
     transform-style: preserve-3d;
     transform: perspective(var(--perspective));
     position: fixed;
@@ -33,12 +41,14 @@ body {
     align-items: center;
     justify-content: space-evenly;
     
+    
+    
 }
 
 /* Menu <ul> */
 .Menu-list {
     font-size: var(--font-size);
-    line-height: 1.2;
+    line-height: 2;
     text-transform: uppercase;
     text-align: center;
     display: flex;
@@ -46,6 +56,7 @@ body {
     align-items: center;
     transform: rotateX(-40deg) rotateY(20deg);
     list-style-type: none;
+    margin: 20px;
     
 }
 
@@ -54,7 +65,14 @@ body {
     position: relative;
     color: transparent;
     cursor: pointer;
-    
+    height: var(--split-position);
+    background-color: rgba(230, 228, 228, 0.724);
+    background-image: url("https://cdn.wallpapersafari.com/86/96/z1vP0M.gif") ;
+    background-repeat: no-repeat;
+     background-attachment: fixed;
+  background-position: center;
+  background-size: 100% 100%;
+  margin: 50px;
     
 }
 
@@ -62,6 +80,7 @@ body {
 
 /* Top/bottom mask */
 .Mask {
+    
     display: block;
     position: absolute;
     overflow: hidden;
@@ -69,17 +88,28 @@ body {
     top: 0;
     height: var(--split-position);
     transition: all 2s cubic-bezier(0.16, 1.08, 0.38, 0.98) ;
+    padding-top: 10px;
 }
 .Menu-list-item:hover{
-    color: #1F1B4E;
+    /* background-color: rgba(230, 228, 228, 0.724);
+    background-image: url("https://cdn.wallpapersafari.com/86/96/z1vP0M.gif") ;
+    background-repeat: no-repeat;
+     background-attachment: fixed;
+  background-position: center;  */
+    /* color: #ffffff;
     
     
     font-size: 100px;
-    overflow: visible;
+    overflow: visible; */
+
+}
+.Mask:hover{
+    height: 100%;
 }
 .A:hover{
-    left: 100px;
+    left: 120px;
+    
 }
 .B:hover{
-    right: 100px;
+    right: 120px;
 }
