@@ -12,34 +12,52 @@
 </head>
 
 <body>
-    <div class="Menu">
-        <ul class="Menu-list" data-offset="10">
-            <li class="Menu-list-item A" data-offset="20">
-                
-                <a class="Mask"   href="home.html">Home</a>
-                Home
 
-                
-            </li>
-            <li class="Menu-list-item B" data-offset="16">
-                About
-                <a class="Mask"  href="home.html#aboutSec">About</a>
-                
+    <div id="container">
+        <div class="Menu">
+            <ul class="Menu-list" data-offset="10">
+                <li class="Menu-list-item A1" data-offset="20">
 
-               
-            </li>
-            <li class="Menu-list-item A" data-offset="12" onclick>
-                
-                <a class="Mask"  href="home.html#projectSec">Projects</a>
-                Projects
-                
-            <li class="Menu-list-item B" data-offset="8" onclick>
-                Contact
-                <a class="Mask" href="home.html#contactSec">Contact</a>
-                
-            </li>
-        </ul>
+                    <a class="Mask" href="home.html">Home</a>
+                    
+
+
+                </li>
+                <li class="Menu-list-item B1" data-offset="16">
+                    
+                    <a class="Mask" href="home.html#aboutSec">About</a>
+                    
+
+
+                </li>
+                <li class="Menu-list-item A2" data-offset="12" onclick>
+                    
+                    <a class="Mask" href="home.html#projectSec">Projects</a>
+                    
+
+                <li class="Menu-list-item B2" data-offset="8" onclick>
+                    
+                    <a class="Mask" href="home.html#contactSec">Contact</a>
+                    
+                </li>
+            </ul>
+        </div>
+        <span id="text1"></span>
+        <span id="text2"></span>
     </div>
+
+    <svg id="filters">
+        <defs>
+            <filter id="threshold">
+                <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0
+                                        0 1 0 0 0
+                                        0 0 1 0 0
+                                        0 0 0 255 -140" />
+            </filter>
+        </defs>
+    </svg>
+
+
 </body>
 
 </html>

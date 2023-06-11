@@ -50,13 +50,13 @@ padding: 0;
 max-width: 100vw;
 
 margin: 0 auto;
-background-color: #38705b65;
+background-color: #bebebe65;
 
 }
 .Header {
 width: 100%;
 height: 130px;
-background-color: #586b64;
+background-color: #141515;
 }
 .WrapMiddle{
     width: 100vw;
@@ -68,21 +68,21 @@ flex-direction: row;
 .Left {
     flex: 1;
     
-background-color: #38705b;
+background-color: #ffffff;
 
 }
 .Middle {
     flex:3;
     
 
-background-color: #bbbf90;
+background-color: #303030;
 
 }
 .Right {
     flex: 1;
 
 
-background-color: #38705b;
+background-color: #ffffff;
 
 }
 
@@ -93,5 +93,5 @@ background-color: #38705b;
     
 height: 200px;
 width: 100%;
-background-color: #025059;
+background-color: #141515;
 }

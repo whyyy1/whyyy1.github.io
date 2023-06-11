@@ -1,19 +1,22 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&display=swap');
 /* CSS Variables */
 
 :root {
     --perspective: 60rem;
     --font-size: 4.25rem;
-    --split-position:29%;
+    --split-position: 29%;
     --split-thickness: 4px;
-    --split-color: #ffffffc1;
-   
+    --split-color: #000000;
+
 }
 
 
 
 /* Font settings */
 font-settings {
-    font-family: "Gilroy ExtraBold", system-ui, sans-serif;
+    font-family: 'Covered By Your Grace';
     font-style: normal;
     font-weight: normal;
     -webkit-font-smoothing: antialiased;
@@ -26,34 +29,48 @@ html,
 body {
     width: 100vw;
     height: 100vh;
+    background-color: #000000;
+
 }
 
-body {
-    background: linear-gradient(50deg, #3b0144c4, #131313);
+.Menu {
+    /* background: repeating-radial-gradient(rgb(74, 16, 62) 0px, rgb(19, 19, 18) 5px, red
+10px); */
     transform-style: preserve-3d;
     transform: perspective(var(--perspective));
-    position: fixed;
-    display: flex;
+
+
     align-items: center;
-    justify-content: space-evenly;
-    
-    
-    
+
+   
+    margin-bottom: 15%;
+
+
+
+
+
+
+
+
 }
 
 /* Menu <ul> */
 .Menu-list {
+    font-family: 'Covered By Your Grace';
     font-size: var(--font-size);
     line-height: 2;
     text-transform: uppercase;
     text-align: center;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    transform: rotateX(-40deg) rotateY(20deg);
+    /* transform: rotateX(-40deg) rotateY(30deg); */
     list-style-type: none;
-    margin: 20px;
-    
+    background-color: grey;
+
+
+
+
 }
 
 /* Menu item */
@@ -62,50 +79,80 @@ body {
     color: transparent;
     cursor: pointer;
     height: var(--split-position);
-    background-color: rgba(230, 228, 228, 0.724);
-    background-image: url("https://cdn.wallpapersafari.com/86/96/z1vP0M.gif") ;
-    background-repeat: no-repeat;
-     background-attachment: fixed;
-  background-position: center;
-  background-size: 100% 100%;
-  margin: 50px;
+    /* background-color: rgba(230, 228, 228, 0.724); */
+    width: 40%;
+    margin: auto;
+    justify-content: space-between;
     
+    /* color: white; */
+
+
 }
 
 
 
 /* Top/bottom mask */
 .Mask {
-    
+
     display: block;
     position: absolute;
-    overflow: hidden;
+    margin-left: 20%;
+    
+    overflow: hidden; 
     color: var(--split-color);
-    top: 0;
-    height: var(--split-position);
-    transition: all 2s cubic-bezier(0.16, 1.08, 0.38, 0.98) ;
-    padding-top: 10px;
-}
-.Menu-list-item:hover{
-    /* background-color: rgba(230, 228, 228, 0.724);
-    background-image: url("https://cdn.wallpapersafari.com/86/96/z1vP0M.gif") ;
+    border-radius: 20%;
+    background-image: url("https://cdn.wallpapersafari.com/86/96/z1vP0M.gif");
     background-repeat: no-repeat;
-     background-attachment: fixed;
-  background-position: center;  */
-    /* color: #ffffff;
-    
-    
-    font-size: 100px;
-    overflow: visible; */
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 0% 0%;
+    transition: all 2s cubic-bezier(0.16, 1.08, 0.38, 0.98);
+
+
 
 }
-.Mask:hover{
-    height: 100%;
-}
-.A:hover{
-    left: 120px;
+
+
+
+
+.Mask:hover
+{
+   
     
+    background-size: 200% 100%;
+    color: white;
+    width: 50%;
+    
+
+
+
 }
-.B:hover{
-    right: 120px;
+
+
+#container {
+    position: absolute;
+
+    
+    width: 100vw;
+    filter: url(#threshold) blur(0.6px);
+}
+
+#text1,
+#text2 {
+    position: absolute;
+    width: 100%;
+    display: inline-block;
+
+    font-family: 'Rubik Spray Paint', 'Covered By Your Grace', sans-serif;
+    font-size: 120pt;
+
+    text-align: center;
+
+    user-select: none;
+
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    background: linear-gradient(to top, #060606, #ffffff, #060505);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
