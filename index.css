@@ -55,6 +55,7 @@ body {
     /* transform: rotateX(-40deg) rotateY(30deg); */
     list-style-type: none;
     padding-right: 10vw;
+    padding-left: 10vw;
     
     
 
@@ -169,14 +170,14 @@ a{
     width: 100%;
     display: inline-block;
 
-    font-family: 'Rubik Glitch','Rubik Spray Paint', 'Covered By Your Grace', sans-serif;
-    font-size: 6.5vw;
+    font-family: 'Rubik Spray Paint', 'Covered By Your Grace', sans-serif;
+    font-size: 6vw;
 
     text-align: center;
 
     user-select: none;
 
-    /* text-transform: uppercase; */
+    text-transform: uppercase;
     letter-spacing: 1.5vw;
     background: linear-gradient(to top, #060606, #ffffff, #060505);
     -webkit-background-clip: text;

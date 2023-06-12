@@ -38,60 +38,81 @@
 
 /* i:hover{
     font-size: 45px;
-} */ */
-
-html,
+} */
+*/ html,
 body {
-margin: 0;
-padding: 0;
+    margin: 0;
+    padding: 0;
 
 }
+
 .Wrap {
-max-width: 100vw;
+    max-width: 100vw;
 
-margin: 0 auto;
-background-color: #bebebe65;
-
+    margin: 0 auto;
+    background-color: green;
+    
 }
+
 .Header {
-width: 100%;
-height: 130px;
-background-color: #141515;
+    width: 100vw;
+    height: 130px;
+    background-color: #141515;
+    color: white;
 }
-.WrapMiddle{
+
+.WrapMiddle {
     width: 100vw;
     display: inline-flex;
-flex-direction: row;
+    flex-direction: row;
+    
 
 }
 
-.Left {
+.Left , .Right {
     flex: 1;
-    
-background-color: #ffffff;
 
+    background-color: #636363;
 }
 .Middle {
-    flex:3;
+    flex: 3;
+
+
+
+    background-color: #303030;
+    color: white;
+    
     
 
-background-color: #303030;
-
 }
-.Right {
+
+/* .Right {
     flex: 1;
 
 
-background-color: #ffffff;
+    background-color: #303030;
 
-}
+} */
 
-#aboutSec, #projectSec, #contactSec{
+#aboutSec,
+#projectSec,
+#contactSec {
     height: 1000px;
-}
-.Footer {
     
-height: 200px;
-width: 100%;
-background-color: #141515;
+    
+}
+
+#aboutSec:hover,
+#projectSec:hover,
+#contactSec:hover {
+    height: 1000px;
+    
+    
+}
+
+.Footer {
+
+    height: 10vw;
+    width: 100%;
+    background-color: #141515;
 }

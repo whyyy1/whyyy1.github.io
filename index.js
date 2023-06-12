@@ -1,4 +1,4 @@
-// DotOnion on CodePen thank you 
+// @DotOnion on CodePen thank you!!! 
 
 
 const elts = {
@@ -21,8 +21,8 @@ const texts = [
     
 ];
 
-const morphTime = 2.5;
-const cooldownTime = .45;
+const morphTime = 2;
+const cooldownTime = .5;
 
 let textIndex = texts.length - 1;
 let time = new Date();
@@ -47,11 +47,11 @@ function doMorph() {
 }
 
 function setMorph(fraction) {
-    elts.text2.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
+    elts.text2.style.filter = `blur(${Math.min(6 / fraction - 6, 100)}px)`;
     elts.text2.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
 
     fraction = 1 - fraction;
-    elts.text1.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
+    elts.text1.style.filter = `blur(${Math.min(6 / fraction - 6, 100)}px)`;
     elts.text1.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
 
     elts.text1.textContent = texts[textIndex % texts.length];
