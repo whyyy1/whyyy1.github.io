@@ -33,23 +33,12 @@ body {
 }
 
 .Menu {
-    /* background: repeating-radial-gradient(rgb(74, 16, 62) 0px, rgb(19, 19, 18) 5px, red
-10px); */
-    /* transform-style: preserve-3d; */
-    /* transform: perspective(var(--perspective)); */
 
 
     align-items: center;
 
    
-    /* margin-bottom: 25vw; */
-
-
-
-
-
-
-
+   
 
 }
 
@@ -62,9 +51,11 @@ body {
     text-align: center;
     display: flex;
     flex-direction: row;
-    align-items: center;
+   
     /* transform: rotateX(-40deg) rotateY(30deg); */
     list-style-type: none;
+    padding-right: 10vw;
+    
     
 
 
@@ -79,9 +70,10 @@ body {
     height: var(--split-position);
     /* background-color: rgba(230, 228, 228, 0.724); */
     width: 100vw;
-    margin: auto;
-    flex-direction: row;
-    justify-content: space-between;
+    
+    
+    
+    
     /* background-color: grey; */
     margin-bottom: 15vw;
     color: #000000;
@@ -92,6 +84,7 @@ body {
 }
 a{
     padding-top: 5vw;
+   
 }
 .A1{
     background-image: url("https://media3.giphy.com/media/d3mlE7uhX8KFgEmY/giphy.gif");
