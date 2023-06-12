@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway:900&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Moirai+One&family=Rubik+80s+Fade&family=Rubik+Spray+Paint&display=swap');
 /* CSS Variables */
 
 :root {
@@ -116,7 +115,7 @@ body {
 
     display: block;
     position: relative;
-    
+    text-indent: 100%;
     font-size: 4vw;
     overflow: hidden; 
     color: var(--split-color);
@@ -136,12 +135,12 @@ body {
 
 
 
-.Mask:hover
+.Mask:hover, .Mask:active
 {
    
     
     background-size: 100vw 50vw;
-    
+    text-indent: 0%;
     color: aliceblue;
     font-size:2vw;
    
