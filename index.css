@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway:900&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Moirai+One&family=Rubik+80s+Fade&family=Rubik+Spray+Paint&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Moirai+One&family=Rubik+80s+Fade&family=Rubik+Glitch&family=Rubik+Spray+Paint&display=swap');
 /* CSS Variables */
 
 :root {
@@ -80,6 +80,7 @@ body {
     /* background-color: rgba(230, 228, 228, 0.724); */
     width: 100vw;
     margin: auto;
+    flex-direction: row;
     justify-content: space-between;
     /* background-color: grey; */
     margin-bottom: 15vw;
@@ -92,6 +93,7 @@ body {
 .A1{
     background-image: url("https://media3.giphy.com/media/d3mlE7uhX8KFgEmY/giphy.gif");
     background-size: 0% 0%;
+    
 }
 
 .A2{
@@ -119,13 +121,14 @@ body {
     font-size: 4vw;
     overflow: hidden; 
     color: var(--split-color);
-    border-radius: 20vw;
+    border-radius: 10vw;
     /* background-image: url("https://cdn.wallpapersafari.com/86/96/z1vP0M.gif"); */
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    
     background-position: center;
     
     transition: all 2s cubic-bezier(0.16, 1.08, 0.38, 0.98);
+    
 
     
 
@@ -135,20 +138,22 @@ body {
 
 
 
-.Mask:hover, .Mask:active
-{
-   
-    
-    background-size: 100vw 50vw;
+.Mask:active,
+.Mask:hover {
+    background-size:  25vw;
     text-indent: 0%;
     color: aliceblue;
-    font-size:2vw;
-   
-    /* writing-mode: vertical-rl;
-    text-orientation: upright; */
+    font-size: 2vw;
+    height: 10vw;
+}
 
-
-
+@media (max-width: 768px) {
+    .Mask:hover {
+        background-size: auto;
+        text-indent: initial;
+        color: initial;
+        font-size: initial;
+    }
 }
 
 
@@ -166,15 +171,15 @@ body {
     width: 100%;
     display: inline-block;
 
-    font-family: 'Rubik Spray Paint', 'Covered By Your Grace', sans-serif;
-    font-size: 7vw;
+    font-family: 'Rubik Glitch','Rubik Spray Paint', 'Covered By Your Grace', sans-serif;
+    font-size: 6.5vw;
 
     text-align: center;
 
     user-select: none;
 
-    text-transform: uppercase;
-    letter-spacing: 2vw;
+    /* text-transform: uppercase; */
+    letter-spacing: 1.5vw;
     background: linear-gradient(to top, #060606, #ffffff, #060505);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
