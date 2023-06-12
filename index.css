@@ -82,14 +82,33 @@ body {
     width: 100vw;
     margin: auto;
     justify-content: space-between;
-    background-color: grey;
-    margin-bottom: 25vw;
+    /* background-color: grey; */
+    margin-bottom: 15vw;
+    color: #000000;
 
     
 
 
 }
+.A1{
+    background-image: url("https://media3.giphy.com/media/d3mlE7uhX8KFgEmY/giphy.gif");
+    background-size: 0% 0%;
+}
 
+.A2{
+    background-image: url("https://www.imagic.co.nz/assets/uploads/images/feed/when-the-signs-are-there-branding-rebrand/Thinking-GIF.gif");
+    background-size: 0% 0%;
+}
+
+.B1{
+    background-image: url('https://media2.giphy.com/media/2jOcXFwhIEypPeQvOY/giphy.gif');
+   background-size: 0% 0%;
+}
+
+.B2{
+    background-image: url("https://media.tenor.com/4Nh-kwo0mSQAAAAM/batman-thinking.gif");
+    background-size: 0% 0%;
+}
 
 
 /* Top/bottom mask */
@@ -102,11 +121,11 @@ body {
     overflow: hidden; 
     color: var(--split-color);
     border-radius: 20vw;
-    background-image: url("https://cdn.wallpapersafari.com/86/96/z1vP0M.gif");
+    /* background-image: url("https://cdn.wallpapersafari.com/86/96/z1vP0M.gif"); */
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    background-size: 0% 0%;
+    
     transition: all 2s cubic-bezier(0.16, 1.08, 0.38, 0.98);
 
     
@@ -121,7 +140,7 @@ body {
 {
    
     
-    background-size: 200% 200%;
+    background-size: 100vw 50vw;
     
     color: aliceblue;
     font-size:2vw;
@@ -161,3 +180,4 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
