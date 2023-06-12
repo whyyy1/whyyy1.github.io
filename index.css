@@ -90,9 +90,13 @@ body {
 
 
 }
+a{
+    padding-top: 5vw;
+}
 .A1{
     background-image: url("https://media3.giphy.com/media/d3mlE7uhX8KFgEmY/giphy.gif");
     background-size: 0% 0%;
+    
     
 }
 
@@ -148,10 +152,11 @@ body {
 }
 
 @media (max-width: 768px) {
+    .Mask:active,
     .Mask:hover {
         background-size: auto;
         text-indent: initial;
-        color: initial;
+        color: white;
         font-size: initial;
     }
 }
