@@ -154,10 +154,10 @@ a{
 @media (max-width: 768px) {
     .Mask:active,
     .Mask:hover {
-        background-size: auto;
-        text-indent: initial;
+        background-size: 25vw;
+        text-indent: 0%;
         color: white;
-        font-size: initial;
+        font-size: 2vw;
     }
 }
 
