@@ -36,14 +36,14 @@ body {
 .Menu {
     /* background: repeating-radial-gradient(rgb(74, 16, 62) 0px, rgb(19, 19, 18) 5px, red
 10px); */
-    transform-style: preserve-3d;
-    transform: perspective(var(--perspective));
+    /* transform-style: preserve-3d; */
+    /* transform: perspective(var(--perspective)); */
 
 
     align-items: center;
 
    
-    margin-bottom: 15%;
+    /* margin-bottom: 25vw; */
 
 
 
@@ -66,8 +66,7 @@ body {
     align-items: center;
     /* transform: rotateX(-40deg) rotateY(30deg); */
     list-style-type: none;
-    background-color: grey;
-
+    
 
 
 
@@ -80,11 +79,13 @@ body {
     cursor: pointer;
     height: var(--split-position);
     /* background-color: rgba(230, 228, 228, 0.724); */
-    width: 40%;
+    width: 100vw;
     margin: auto;
     justify-content: space-between;
+    background-color: grey;
+    margin-bottom: 25vw;
+
     
-    /* color: white; */
 
 
 }
@@ -95,12 +96,12 @@ body {
 .Mask {
 
     display: block;
-    position: absolute;
-    margin-left: 20%;
+    position: relative;
     
+    font-size: 4vw;
     overflow: hidden; 
     color: var(--split-color);
-    border-radius: 20%;
+    border-radius: 20vw;
     background-image: url("https://cdn.wallpapersafari.com/86/96/z1vP0M.gif");
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -108,6 +109,7 @@ body {
     background-size: 0% 0%;
     transition: all 2s cubic-bezier(0.16, 1.08, 0.38, 0.98);
 
+    
 
 
 }
@@ -119,10 +121,13 @@ body {
 {
    
     
-    background-size: 200% 100%;
-    color: white;
-    width: 50%;
+    background-size: 200% 200%;
     
+    color: aliceblue;
+    font-size:2vw;
+   
+    /* writing-mode: vertical-rl;
+    text-orientation: upright; */
 
 
 
@@ -132,7 +137,7 @@ body {
 #container {
     position: absolute;
 
-    
+    align-items: center;
     width: 100vw;
     filter: url(#threshold) blur(0.6px);
 }
@@ -144,14 +149,14 @@ body {
     display: inline-block;
 
     font-family: 'Rubik Spray Paint', 'Covered By Your Grace', sans-serif;
-    font-size: 10vw;
+    font-size: 6vw;
 
     text-align: center;
 
     user-select: none;
 
     text-transform: uppercase;
-    letter-spacing: 5px;
+    letter-spacing: 2vw;
     background: linear-gradient(to top, #060606, #ffffff, #060505);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

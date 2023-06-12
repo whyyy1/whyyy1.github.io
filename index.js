@@ -7,15 +7,15 @@ const elts = {
 };
 
 const texts = [
-    "Welcome",
-    "To",
-    "A",
-    "World",
-    "Where",
-    "I",
-    "Encourage",
-    "You",
-    "To",
+    "Piensa Diferente",//Spanish
+    "Pensez Différemment",//French
+    "Anders Denken", //German
+    "فكر بشكل مختلف", //Arabic
+    "Pense de Forma Diferente", //Portuguese
+    "不同思考", //Mandarin 
+    "違った考え方をする",//Japanese
+    "Думайте по-другому", //Russian
+    "अलग सोचें", //Hindi
     "Thynk Differently"
 ];
 
