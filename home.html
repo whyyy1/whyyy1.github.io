@@ -6,10 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tieran Dysart's Portfolio</title>
-    <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
-    <script type="module" src="js.js"></script>
+    <script defer  src="home.js"></script>
+
 </head>
 
 <body class="bodyContainer">
@@ -18,32 +19,35 @@
         <div class="Wrap">
 <header class="Header">
     <section id="headerSec">
-        <h1>Tieran Dysart</h1>
+        
 
         <nav>
             <ul>
-                <a class="btn btn-default"  href="#aboutSec">About Me</a>
-                <a class="btn btn-default" href="#projectSec">Projects</a>
-                <a class="btn btn-default" href="#contactSec">Contact</a>
-                <a class="btn btn-default" href="index.html"><i class="bi bi-house">Home</i></a>
+                <a class="btn btn-default navLinks"  href="#aboutSec">About Me</a>
+                <a class="btn btn-default navLinks" href="#projectSec">Projects</a>
+                <a class="btn btn-default navLinks" href="#contactSec">Contact</a>
+                <a class="btn btn-default navLinks" href="index.html"><i class="bi bi-house">Home</i></a>
             </ul>
         </nav>
     </section>
 </header>
 <div class="WrapMiddle">
 <aside class="Left"><p>This is the side element</p></aside>
-<main class="Middle">
-    <!-- About -->
-    <section id="aboutSec">
+
+<main class="Middle"">
+    
+    
+    <section id="aboutSec" >
         <section class="about1">
-            <h1>About Me</h1>
-            
+            <h1 >About Me</h1>
+            <h1>Tieran Dysart</h1>
             <p>Hello, my name is Tieran Dysart. I am a self taught software engineer with some bootcamps under my belt!
                 <br> Some of the languages I know would be as follows:
             </p>
             <ol>
                 <i class="devicon-javascript-plain colored"></i>
                 <i class="devicon-python-plain-wordmark colored"></i>
+                <i class="devicon-react-original colored"></i>
                 <li>2</li>
                 <li>3</li>
                 <li>4</li>
@@ -68,10 +72,12 @@
             <a class="contactIcons" href="https://www.linkedin.com/in/tieran-dysart-92a975262/" target="_blank"> <i class="devicon-linkedin-plain-wordmark colored"></i></a>
         </article>
     </section>
-
+    
 </main>
+
 <aside class="Right"></aside>
 </div>
+<button class="scrollBtn">SCROLL</button>
 <footer class="Footer"><p>@ThynkDifferently</p>
     <span></span>
     <a class="btn btn-default"   href="home.html">Back to top</a></footer>
