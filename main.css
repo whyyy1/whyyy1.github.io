@@ -1,0 +1,48 @@
+*{
+    margin: auto;
+    align-items: center;
+}
+
+.mainParent{
+    position: relative;
+    height: 50vw;
+    width: 90vw;
+    margin-top: 4vw;
+    
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.class1{
+    position: absolute;
+    height: 17vw;
+    width: 18vw;
+    bottom: 15vw;
+    right:0vw;
+    border-radius: 50%;
+    background-color: yellow;
+}
+.class2{
+    position: absolute;
+    height: 6vw;
+    width: 7vw;
+    bottom: 15vw;
+    right:0vw;
+    left: 11vw;
+    border-radius: 50%;
+    background-color: red;
+
+}
+
+.class3{
+    position: absolute;
+    height: 5vw;
+    width: 6vw;
+    bottom: 9vw;
+    right:0vw;
+    border-radius: 50%;
+    background-color: blue;
+
+}

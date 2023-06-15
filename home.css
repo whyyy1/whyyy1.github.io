@@ -1,45 +1,4 @@
-/* * {
-    background-color: rgba(230, 228, 228, 0.724);
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX27VqnFdy3tp45XHqahQMze9mfQID08AqdKfZE8GW&s") ;
-    background-repeat: no-repeat;
-     background-attachment: fixed;
-  background-position: center; 
-}
- 
-#bodyContainer {
-    display: flex;
-    flex-direction: row;
-    border: 14px solid orange;
-
-}
-#aboutSec {
-    flex:1;
-    
-    
-    border: 1px solid green;
-}
-.about1, .about2{
-    height: 500px;
-    width: 500px;
-}
-#projectSec {
-    flex:2;
-    border: 1px solid blue;
-}
-#contactSec {
-    flex:3;
-    height: 400px;
-    
-    border: 1px solid red;
-}
-.contactIcons{
-    font-size: 200px;
-}
-
-/* i:hover{
-    font-size: 45px;
-} */
-*/ html,
+html,
 body {
     margin: 0;
     padding: 0;
@@ -65,16 +24,16 @@ body {
     position: fixed;
 }
 
-.Header:hover{
+/* .Header:hover{
     width: 100vw;
     height: 10vw;
     
-}
+} */
 
 .WrapMiddle {
     width: 100vw;
-    display: inline-flex;
-    flex-direction: row;
+    display: flex;
+    flex-direction: column;
     
 
 }
@@ -85,6 +44,8 @@ body {
     background-color: #636363;
 }
 .Middle {
+    
+    height: 100vw;
     flex: 3;
 
 
@@ -107,7 +68,9 @@ body {
 #aboutSec,
 #projectSec,
 #contactSec {
-    height: 1000px;
+    height: 100vw;
+    width: 100vw;
+    
     
     
 }
@@ -127,6 +90,6 @@ body {
     background-color: #141515;
 }
 
-.scrollBtn{
+.addData,.delData{
     color: #141515;
 }
