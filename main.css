@@ -5,11 +5,11 @@
 
 .mainParent{
     position: relative;
-    height: 50vw;
+    height: 90vw;
     width: 90vw;
     margin-top: 4vw;
-    
-    background-color: grey;
+    padding-top: 20vw;
+    background-color: rgb(0, 0, 0);
     display: flex;
     flex-direction: column;
 }
@@ -19,12 +19,13 @@
     position: absolute;
     height: 17vw;
     width: 18vw;
-    bottom: 15vw;
+    bottom: 5vw;
     right:0vw;
     border-radius: 50%;
     background-color: yellow;
 }
-.class2{
+
+.class2 {
     position: absolute;
     height: 6vw;
     width: 7vw;
@@ -45,4 +46,55 @@
     border-radius: 50%;
     background-color: blue;
 
+}
+
+.class4{
+    position: absolute;
+    height: 7vw;
+    width: 8vw;
+    bottom: -20vw;
+    right:0vw;
+    border-radius: 50%;
+    background-color: rgb(175, 175, 186);
+
+}
+
+
+.class5{
+    position: absolute;
+    height: 7vw;
+    width: 8vw;
+    bottom: 40vw;
+    right:0vw;
+    border-radius: 50%;
+    background-color: rgb(32, 162, 47);
+
+}
+
+.class6{
+    position: absolute;
+    height: 7vw;
+    width: 8vw;
+    bottom: -40vw;
+    right:0vw;
+    border-radius: 50%;
+    background-color: rgb(218, 151, 16);
+
+}
+
+.class7{
+    position: absolute;
+    height: 6vw;
+    width: 8vw;
+    bottom: 15vw;
+    right:0vw;
+    left: 11vw;
+    border-radius: 50%;
+    background-color: rgb(141, 210, 144);
+
+}
+
+.class1:hover,.class2:hover,.class3:hover,.class4:hover,.class5:hover,.class6:hover,.class7:hover{
+    height: 60vw;
+    width: 60vw;
 }
