@@ -17,18 +17,19 @@
 /* header content */
 .Header {
     border: 3px solid green;
-    position: absolute;
+    position: relative;
     width: 100vw;
-    height: 5vw;
+    height: 15vw;
 }
 
 #headerSec{
+    position: absolute;
     border: 3px solid grey;
     position: absolute;
     align-items: center;
-    
-    left: 40%;   
-    right: 40%; 
+    width: 100vw;
+
+     
 
 }
 
@@ -37,7 +38,8 @@
     
     border: 3px solid blue;
     left:40vw;
-    margin-top: 3vw;
+    top:4vw;
+    margin-top: 5vw;
 }
 
 
