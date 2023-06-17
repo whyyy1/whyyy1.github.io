@@ -1,11 +1,6 @@
-
-
-
-
 //Event listener when you click the middle of the screen
 let showing = false;
 const middleClick = document.querySelector('.Middle');
-
 const colorList = ['red', 'green', 'blue', 'grey', 'purple', 'yellow', 'orange', 'pink', 'brown', 'cyan', 'magenta', 'teal', 'lime', 'olive', 'navy', 'maroon', 'gold', 'silver', 'indigo', 'violet', 'turquoise', 'coral', 'salmon', 'orchid', 'peru'];
 const randomSentences = [
     "<h3>This is a placeholder text</h3><span></span><p>Lorem ipsum dolor sit amet.</p>",
@@ -14,78 +9,93 @@ const randomSentences = [
     "<h3>Add a relevant image here</h3><span></span><p>Lorem ipsum dolor sit amet.</p>",
     "<h3>Don't forget to cite your sources</h3><span></span><p>Lorem ipsum dolor sit amet.</p>"
 ];
+const htmlTags = [
+    'a', 'abbr', 'acronym', 'address', 'applet', 'area', 'article', 'aside',
+    'audio', 'b', 'base', 'basefont', 'bdi', 'bdo', 'bgsound', 'big', 'blink',
+    'blockquote', 'body', 'br', 'button', 'canvas', 'caption', 'center', 'cite',
+    'code', 'col', 'colgroup', 'command', 'content', 'data', 'datalist', 'dd',
+    'decorator', 'del', 'details', 'dfn', 'dialog', 'dir', 'div', 'dl', 'dt',
+    'element', 'em', 'embed', 'fieldset', 'figcaption', 'figure', 'font',
+    'footer', 'form', 'frame', 'frameset', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+    'head', 'header', 'hgroup', 'hr', 'html', 'i', 'iframe', 'image', 'img',
+    'input', 'ins', 'isindex', 'kbd', 'keygen', 'label', 'legend', 'li', 'link',
+    'listing', 'main', 'map', 'mark', 'marquee', 'menu', 'menuitem', 'meta',
+    'meter', 'nav', 'nobr', 'noframes', 'noscript', 'object', 'ol', 'optgroup',
+    'option', 'output', 'p', 'param', 'picture', 'plaintext', 'pre', 'progress',
+    'q', 'rp', 'rt', 'rtc', 'ruby', 's', 'samp', 'script', 'section', 'select',
+    'shadow', 'slot', 'small', 'source', 'spacer', 'span', 'strike', 'strong',
+    'style', 'sub', 'summary', 'sup', 'table', 'tbody', 'td', 'template',
+    'textarea', 'tfoot', 'th', 'thead', 'time', 'title', 'tr', 'track', 'tt',
+    'u', 'ul', 'var', 'video', 'wbr'
+];
 
-middleClick.addEventListener('click', () => {
-
-    let randomColor = colorList[Math.floor(Math.random() * colorList.length)]
-    middleClick.style.backgroundColor = randomColor;
-
-})
-
-
-const addData = document.querySelector('.addData');
-let lastKnownScrollPosition = 0;
-let ticking = false
-
-addData.addEventListener('click', () => {
-    const sections = document.querySelectorAll('.sectionClass');
-    console.log(sections)
-
-
-    let randomColor = colorList[Math.floor(Math.random() * colorList.length)]
-    let randomSentence = randomSentences[Math.floor(Math.random() * randomSentences.length)]
-    middleClick.style.color = randomColor;
-    for (i of sections) {
-        let addHeader = document.createElement('h3')
-        addHeader.innerHTML = randomSentence
-        addHeader.classList.add('h3Added')
-        console.log(addHeader)
-        i.appendChild(addHeader)
-
-    }
-
-
-});
-
+const htmlProperties = [
+    'class', 'id', 'style', 'src', 'href', 'alt', 'width', 'height', 'disabled',
+    'value', 'placeholder', 'checked', 'selected', 'maxlength', 'readonly',
+    'required', 'autoplay', 'controls', 'colspan', 'rowspan'
+];
 const delData = document.querySelector('.delData');
-
-delData.addEventListener('click', () => {
-    const sections = document.querySelectorAll('.sectionClass');
-    let delData = document.querySelector('.h3Added')
-    console.log(delData)
-    for (i of sections) {
-        delData.remove()
-        console.log(i)
-    }
-
-})
-
-
-//button listeners 
-
+const textArea = document.querySelector(".textInput")
+const addData = document.querySelector('.addData');
 const linkShowing = document.querySelectorAll('.lc')
 const aboutBtn = document.querySelector('.aboutLink')
 const projectBtn = document.querySelector('.projectLink')
 const contactBtn = document.querySelector('.contactLink')
+const selectTagBtn = document.querySelector('.tagSelection')
+const classTagBtn = document.querySelector('.classSelection')
+const classValueTagBtn = document.querySelector('.classInput')
+const EDITOR = document.querySelector(".edit")
+const editorWindow = document.querySelector(".actionBtns")
+
+let lastKnownScrollPosition = 0;
+let ticking = false
+let section;
+let id;
+
+
+//add all items in the htmlTags to the selectTagBtn
+for(k of htmlTags){
+    let optionTag = document.createElement('option');
+    optionTag.value = k.toLowerCase()
+    optionTag.textContent = k
+    
+    selectTagBtn.appendChild(optionTag)
+    
+}
+
+for(f of htmlProperties){
+    let optionTag = document.createElement('option');
+    optionTag.value = f.toLowerCase()
+    optionTag.textContent = f
+    
+    classTagBtn.appendChild(optionTag)
+    
+}
+
+//button listeners 
 
 for (i of linkShowing) {
 
     i.addEventListener('click', (event) => {
         // console.log(document.querySelector('#aboutSec').innerHTML)
-        let section;
-        let id;
+        
         if (event.target.textContent === 'About Me') {
             section = '#aboutSec'
             id = 'aboutSec'
+            // alert('About me clicked')
 
         }
         else if (event.target.textContent === 'Projects') {
             section = '#projectSec';
-            id = 'projectSec'
+            id = 'projectSec';
+            // alert('Project clicked')
+
         }
         else if (event.target.textContent === 'Contact') {
             section = '#contactSec'
-            id = 'contactSec'
+            id = 'contactSec';
+            // alert('Contact clicked');
+
         }
         for (j of document.querySelector('.Middle').children) {
 
@@ -123,5 +133,89 @@ for (i of linkShowing) {
     })
 
 }
-const aboutMark = `<h1>This is the About me section</h1><p>My name is Tieran Dysart and I am a self taught programmer. Currently in a 15 week bootcamp to become a Software Engineer`
-document.querySelector('#aboutSec').innerHTML = aboutMark
+
+
+EDITOR.addEventListener('click', (event) => {
+    console.log(editorWindow.style.display)
+    if(editorWindow.style.display === '' || editorWindow.style.display ==='none' || editorWindow.style.display === 'undefined'){
+        editorWindow.style.display = 'block'
+    }
+    else if(editorWindow.style.display === 'block'){
+        editorWindow.style.display = 'none'
+    }
+})
+
+middleClick.addEventListener('click', () => {
+
+    let randomColor = colorList[Math.floor(Math.random() * colorList.length)]
+    middleClick.style.backgroundColor = randomColor;
+
+})
+
+
+addData.addEventListener('click', () => {
+    const sectionOn = section;
+    const sections = document.querySelectorAll('.sectionClass');
+    console.log(selectTagBtn.value,classValueTagBtn.value)
+    //add Data from textArea on click
+    if(sectionOn){
+        if(textArea.value !== ''){
+            console.log(section,id)
+        console.log(textArea.value)
+        let createClass = document.createElement(selectTagBtn.value)
+        createClass.innerText = textArea.value
+        createClass.setAttribute(classTagBtn.value ,classValueTagBtn.value)
+        document.querySelector(sectionOn).appendChild(createClass)
+        // sectionOn.appendChild(createH1)
+        textArea.value = ''
+        classValueTagBtn.value = ''
+        }else{
+            alert('Please type something in before adding')
+        }
+    }else{
+        alert("Please select a page you want to add the text to")
+    }
+
+    //change background on click
+    let randomColor = colorList[Math.floor(Math.random() * colorList.length)]
+    let randomSentence = randomSentences[Math.floor(Math.random() * randomSentences.length)]
+    middleClick.style.color = randomColor;
+   
+});
+
+
+
+delData.addEventListener('click', () => {
+    const sectionOn = section;
+    let delDataBtn = document.querySelector(sectionOn)
+    console.log(delDataBtn)
+    if(delDataBtn == null ||delDataBtn == '' ||delDataBtn == 'undefined' ){
+        alert('No data to delete')
+        
+    }else{
+        for(i of delDataBtn.children){
+            if(i.className === 'addedClass'){
+                console.log(i)
+                i.remove()
+                return
+            }
+            else{
+                alert('Nothing to delete')
+            }
+        }
+
+        
+    }
+    
+    
+
+})
+
+
+
+
+
+
+
+// const aboutMark = `<h1>This is the About me section</h1><p>My name is Tieran Dysart and I am a self taught programmer. Currently in a 15 week bootcamp to become a Software Engineer<p>`
+// document.querySelector('#aboutSec').innerHTML = aboutMark

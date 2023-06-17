@@ -13,13 +13,15 @@
     display: flex;
     flex-direction: column;
     width: 100vw;
+    
+    background-color: rgba(201, 121, 10, 0.552);
 }
 /* header content */
 .Header {
     border: 3px solid green;
     position: relative;
-    width: 100vw;
-    height: 15vw;
+    width: 99%;
+    height: 500px;
 }
 
 #headerSec{
@@ -36,10 +38,54 @@
 .actionBtns{
     position: absolute;
     
+    
+    display: none;
     border: 3px solid blue;
-    left:40vw;
-    top:4vw;
-    margin-top: 5vw;
+    left:25vw;
+    top:35%;
+    height: 65%;
+    width: 55%;
+    
+}
+.textInput{
+    position: absolute;
+    height: 50%;
+    width:  100%;
+    margin: .2%;
+    
+    
+}
+.addData{
+    position: absolute;
+    width: 25%;
+    
+    bottom: .5vw;
+    left: 5vw;
+}
+.delData{
+    position: absolute;
+    width: 25%;
+    bottom: .5vw;
+    left: 35vw;
+}
+.tagSelection{
+    position: absolute;
+    width: 25%;
+    bottom: 12vw;
+    left: 15vw;
+}
+.classSelection{
+    position: absolute;
+    width: 25%;
+    bottom: 12vw;
+    left: 35vw;
+}
+.classInput{
+    position: absolute;
+    width: 25%;
+    bottom: 6vw;
+    left: 35vw;
+
 }
 
 
@@ -52,7 +98,7 @@ border: 4px solid brown;
 margin-top: 5vw;
 margin-bottom: 5vw;
 height: 80vw;
-width: 100vw;
+width: 99vw;
 display: flex;
 flex-direction: row;
 justify-content: space-evenly;
@@ -62,7 +108,7 @@ justify-content: space-evenly;
     border: 4px  solid yellow;
     height: 80vw;
     width: 15vw;
-    padding-right: 15vw;
+    padding-right: 10vw;
     
 }
 .Right{
@@ -70,7 +116,7 @@ justify-content: space-evenly;
     border: 4px  solid black;
     height: 80vw;
     width: 15vw;
-    padding-right: 15vw;
+    padding-right: 10vw;
 }
 
 .WrapMiddle{
