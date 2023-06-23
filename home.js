@@ -79,19 +79,19 @@ for (i of linkShowing) {
     i.addEventListener('click', (event) => {
         // console.log(document.querySelector('#aboutSec').innerHTML)
         
-        if (event.target.textContent === 'About Me') {
+        if (event.target.textContent === 'Project1') {
             section = '#aboutSec'
             id = 'aboutSec'
             // alert('About me clicked')
 
         }
-        else if (event.target.textContent === 'Projects') {
+        else if (event.target.textContent === 'Project2') {
             section = '#projectSec';
             id = 'projectSec';
             // alert('Project clicked')
 
         }
-        else if (event.target.textContent === 'Contact') {
+        else if (event.target.textContent === 'Project3') {
             section = '#contactSec'
             id = 'contactSec';
             // alert('Contact clicked');
