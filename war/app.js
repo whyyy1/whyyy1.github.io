@@ -1,4 +1,5 @@
 const gameList = ['game1'];
+const cardBackImages = ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMnbeDidOb-268gpwvuinNGng20ifBX4FVy3_oAjXb&s','backs/abstract_scene.svg','backs/abstract.svg','backs/astronaut.svg'];
 
 const number = ['A', 'K', 'Q', 'J', '10', '9', '8', '7', '6', '5', '4', '3', '2'];
 const suits = ['C', 'S', 'H', 'D'];
@@ -10,7 +11,7 @@ const gameSettings = document.querySelector('.setup');
 const gameSelector = document.querySelector('.gameList');
 const totalHandsSelector = document.querySelector('.totalHands');
 const totalCardsSelector = document.querySelector('.totalCards');
-
+const cardBackImg = document.querySelector('.cardBackImage')
 
 let game;
 let openHand = false;
@@ -19,6 +20,7 @@ let closeHand;
 //Total players and cards for each 
 let maxPlayers = 4;
 let maxCards = 13;
+let cardBImg;
 // Game Deck
 let mainDeck;
 //fill the select tags with options 
@@ -28,6 +30,17 @@ for (let game of gameList) {
     gameOption.value = game
     gameOption.textContent = game
     gameSelector.appendChild(gameOption)
+
+}
+
+let cardCount = 1 
+for (let cardBack of cardBackImages) {
+    
+    let backOption = document.createElement('option')
+    backOption.value = `back${cardCount}`
+    backOption.textContent = `Image${cardCount}`
+    cardBackImg.appendChild(backOption)
+    cardCount++
 
 }
 
@@ -127,8 +140,8 @@ class Deck {
             cardVal.setAttribute('src', topCard.img)
 
             cardVal.classList.add('card')
-            cardVal.style.height = '60%';
-            cardVal.style.width = '20%';
+            cardVal.style.height = '15vh';
+            cardVal.style.width = '15vw';
             // console.log(topCard, player.children)
             player.appendChild(cardVal)
             i++
@@ -183,7 +196,7 @@ class Game {
         this.players = []
         this.turn = 0;
         this.dealer = 0;
-        this.maxTurn = 25;
+        this.maxTurn = 0;
         this.playerBtn;
         this.currentUser;
         this.roundStart = 0;
@@ -202,7 +215,7 @@ class Game {
             player['turn'] = false;
             this.players.push(player)
         }
-
+        this.maxTurn = this.players.length * 2
         this.gameLogic()
     }
 
@@ -226,12 +239,16 @@ class Game {
         }
 
         // check maxturns vs turn -allow user to do something and have boolean end turn condition
-        if (this.turn + 1 < this.maxTurn) {
+        if (this.turn  < this.maxTurn) {
             document.querySelector('.gameInfo').innerText = `${this.players[this.dealer].name} turn - Turn ${this.turn + 1}/${this.maxTurn}`
             console.log(`${this.players[this.dealer].name} turn! ${this.turn + 1}/${this.maxTurn} ${this.players.length}${this.dealer}`)
             // setInterval(alert(`${this.players[this.dealer].name} turn! ${this.turn + 1}/${this.maxTurn}`), 3000)
             this.currentUser = this.players[this.dealer];
             this.playerTurn()
+        }
+
+        if (this.turn === this.maxTurn) {
+            this.endGame()
         }
 
 
@@ -248,10 +265,8 @@ class Game {
         finalCardSelected = false
         this.playerBtn.style.display = 'none';
         // //check max turn hit
-        if (this.turn === this.maxTurn+1) {
-            this.endGame()
-        }
-        else if (this.turn > 0) {
+        
+        if (this.turn > 0) {
 
             if ((this.turn + 1) % this.players.length === 0) {
                 for (let cP of document.querySelector('.playArea').children) {
@@ -317,7 +332,7 @@ class Game {
         //push card value to array list of cards played
 
         // //remove the card from the players hand
-        console.log('hey')
+        
         for (let cardsPlayArea of allCardsPlayed) {
 
             this.playField.push(cardsPlayArea.id)
@@ -334,15 +349,19 @@ class Game {
         switch (highestValue) {
             case 14:
                 highestValue = "Ace";
+                alert(`${winnerName} won with a ${highestValue}`)
                 break;
             case 13:
                 highestValue = "King";
+                alert(`${winnerName} won with a ${highestValue}`)
                 break;
             case 12:
                 highestValue = "Queen";
+                alert(`${winnerName} won with a ${highestValue}`)
                 break;
             case 11:
                 highestValue = "Jack";
+                alert(`${winnerName} won with a ${highestValue}`)
                 break;
             default:
                 alert(`${winnerName} won with a ${highestValue}`)
@@ -355,7 +374,7 @@ class Game {
             if (userH.name === winnerName) {
                 let wH = `.${winnerName}`
                 let winningClass = document.querySelector(wH)
-                console.log('hey')
+                
                 console.log(this.playField, cardPlayed)
                 for (let sym of this.playField) {
                     userH.hand.push(sym)
@@ -365,6 +384,9 @@ class Game {
                 for (let cardImges of cardPlayed) {
                     // console.log(cardImges)
                     cardImges.setAttribute('src', 'cards/RED_BACK.svg')
+                    cardImges.style.height = '15vh'
+                    cardImges.style.width = '15vw'
+                    cardImges.style.marginTop = '0'
                     winningClass.appendChild(cardImges)
                     cardPlayed = []
                 }
@@ -392,26 +414,13 @@ class Game {
 
 
         }
-
-        // console.log(this.playField)
-        // let wH = `.${winnerName}`
-        // let winnerHandDom = document.querySelector(wH)
-
-        // for (let card of cardPlayed) {
-
-        //     card.setAttribute('src', 'cards/RED_BACK.svg')
-        //     winnerHandDom.appendChild(card)
-
-        // }
-        // // for (let sym of this.playField) {
-        // //     console.log(sym[0])
-
-        // // }
+        
+        
 
 
 
 
-        // setInterval(document.querySelector('.playArea').innerHTML = '', 4000)
+        
     }
 
     handTotal(hand) {
@@ -419,7 +428,18 @@ class Game {
     }
 
     endGame() {
+        let mostCards = 0;
+        let winName = ''
+        for(let playerHandTotal of this.players){
+            if(playerHandTotal.hand.length > mostCards){
+                mostCards = playerHandTotal.hand.length
+                winName = playerHandTotal.name
+                console.log(playerHandTotal.hand.length,playerHandTotal,this.players)
+            }
+            
+        }
         console.log('Game Over');
+        alert(`${winName} has won the game with ${mostCards} total cards!`)
         deckBtn.textContent = 'Start'
         gameTable.innerHTML = ''
         gameMenu.innerHTML = ''
@@ -427,7 +447,8 @@ class Game {
         if (prompt('Wanna play again') === 'y') {
 
             let newDeck = new Deck()
-            new Game('Game1', newDeck).gameLogic()
+            let game = new Game('Game1', newDeck)
+            game1.gameSetup()
 
         } else {
             alert('Game Over')
@@ -446,7 +467,7 @@ class Game {
 //Display the get deck sign or reset sign 
 deckBtn.addEventListener('click', (event) => {
 
-
+    
     //check if deal btn is showing if not show it and set the deck button to RESET
     if (dealBtn.style.display === '') {
         dealBtn.style.display = 'block';
@@ -484,17 +505,37 @@ dealBtn.addEventListener('click', (event) => {
 
     mainDeck.randomizeDeck()
     alert('Deck created! Click the deck to deal the cards. ')
+    let cardBackChosen = cardBackImg.value
+            
+            // console.log(cardBackChosen)
+            switch(cardBackChosen){
+                case 'back1':
+                    cardBImg = cardBackImages[0];
+                case 'back2':
+                    cardBImg = cardBackImages[1];
+                case 'back2':
+                    cardBImg = cardBackImages[2];
+                case 'back4':
+                    cardBImg = cardBackImages[3];
+                // case 'back5':
+                //     cardBImg = cardBackImages[4];
+                default:
+                    cardBImg = 'cards/RED_BACK.svg';
+                
+
+            }
+    console.log(cardBImg)
     dealBtn.style.display = 'none';
     //make the deck a clickable button with image inside
     const deckButton = document.createElement('button');
     deckButton.classList.add('deckButton');
     deckButton.style.position = 'absolute';
 
-    deckButton.style.top = '25%';
+    deckButton.style.top = '15%';
     deckButton.style.left = '5%';
     const deckImage = document.createElement('img');
     deckImage.classList.add('deckImage');
-    deckImage.setAttribute('src', `cards/RED_BACK.svg`)
+    deckImage.setAttribute('src', 'cards/RED_BACK.svg')
     deckImage.style.height = '25vh';
     deckImage.style.width = '10vw';
 
@@ -512,7 +553,10 @@ gameTable.addEventListener('click', (event) => {
     if (event.target.classList[0] === 'deckImage' || event.target.classList[0] === 'deckButton') {
         //if the first time create the gameTable and set activeDeck to true
         if (!mainDeck.activeDeck) {
+            
+            
             mainDeck.activeDeck = true;
+            
             let totalPlayers = parseInt(prompt("How many players?"))
             console.log(totalPlayers)
             console.log(Math.floor(mainDeck.deckLen() / totalPlayers))
@@ -522,16 +566,18 @@ gameTable.addEventListener('click', (event) => {
             const gameBoard = document.createElement('div');
             // cardContainer.classList.add('hand', 'hhand-compact', 'active-hand')
             gameBoard.style.backgroundColor = 'green';
-            gameBoard.style.width = '60vw';
+            gameBoard.style.width = '70vw';
             gameBoard.style.height = '80vh';
+            gameBoard.style.borderRadius = '30%';
             gameBoard.style.left = '20%';
             gameBoard.style.bottom = '3%';
             gameBoard.style.position = 'relative';
             gameBoard.style.display = 'grid';
-            gameBoard.style.gridTemplateRows = 'auto auto';
-            gameBoard.style.gridTemplateColumns = 'auto auto';
-            gameBoard.style.justifyContent = 'center';
-            gameBoard.style.padding = 'auto';
+            // gameBoard.style.gridTemplateRows = 'auto auto';
+            gameBoard.style.gridTemplateColumns = 'repeat(3, 1fr)';
+            gameBoard.style.gap = '5%'
+            
+            // gameBoard.style.padding = 'auto';
             gameBoard.classList.add('gameBoard');
 
             let playArea = document.createElement('div');
@@ -539,9 +585,10 @@ gameTable.addEventListener('click', (event) => {
             playArea.style.position = 'absolute';
             playArea.style.zIndex = '1';
             playArea.style.top = '25%';
-            playArea.style.left = '25%';
-            playArea.style.width = '35vw';
-            playArea.style.height = '55vh';
+            playArea.style.left = '3.5%';
+            playArea.style.borderRadius = '30%';
+            playArea.style.width = '65vw';
+            playArea.style.height = '35vh';
             playArea.classList.add('playArea');
 
 
@@ -561,9 +608,9 @@ gameTable.addEventListener('click', (event) => {
             endTurn.style.display = 'none';
 
             
-            gameInfo.innerText = 'PLayer Turn';
-            gameInfo.style.position = 'absolute';
-            // gameInfo.style.top = '0%';
+            gameInfo.innerText = 'Player Turn';
+            gameInfo.style.position = 'relative';
+            gameInfo.style.top = '0%';
             // gameInfo.style.left = '40%';
             gameInfo.classList.add('gameInfo');
 
@@ -597,12 +644,12 @@ gameTable.addEventListener('click', (event) => {
             battle.classList.add('battle');
             battle.style.display = 'none';
             //added it to the gameMenu table
-            gameMenu.appendChild(endTurn);
+            // gameMenu.appendChild(endTurn);
             
             gameMenu.appendChild(startGame);
-            gameMenu.appendChild(drawCard);
-            gameMenu.appendChild(removeCard);
-            gameMenu.appendChild(battle)
+            // gameMenu.appendChild(drawCard);
+            // gameMenu.appendChild(removeCard);
+            // gameMenu.appendChild(battle)
             //get the list of users to add to the deck class and keep track of turns
             let userProfiles = [];
             //create each users hand container 
@@ -610,39 +657,43 @@ gameTable.addEventListener('click', (event) => {
                 let userHandList = [];
 
                 let handContainer = document.createElement('div');
+                // handContainer.style.backgroundColor = 'green'
                 let playerTag = document.createElement('p');
 
                 let playerShowHands = document.createElement('button');
                 playerShowHands.textContent = `Player${count + 1} Hand`;
                 playerShowHands.style.position = 'absolute';
                 playerShowHands.style.display = 'none';
-                playerShowHands.style.bottom = '0%';
-                playerShowHands.style.right = '0%';
+                playerShowHands.style.bottom = '30%';
+                playerShowHands.style.left = '0%';
                 playerTag.innerHTML = `Player${count + 1}`;
-                playerTag.style.position = 'relative';
+                
                 playerTag.zIndex = '3'
                 playerTag.style.backgroundColor = 'white';
-                playerTag.style.bottom = '-50%';
+
+                playerTag.style.marginTop = '40%';
+                playerTag.style.height = "20%";
+                playerTag.style.visibility = 'visible';
                 // playerTag.style.gridRow = `${count}/${count + 1}`;
                 // playerTag.style.gridColumn = `1/${count + 1}`;
-                playerTag.style.zIndex = '3'
+                
                 //added the user name to the class
                 handContainer.classList.add('hand', 'hhand-compact', 'active-hand', `Player${count + 1}`);
                 playerShowHands.value = `Player${count + 1}`;
                 playerShowHands.classList.add('handBtn');
 
                 userProfiles.push(playerShowHands.value);
-
-                handContainer.style.width = '25vw';
+                
+                handContainer.style.width = '20vw';
                 handContainer.style.height = '20vh';
-
+                handContainer.style.marginRight = '40%';
                 handContainer.style.display = 'flex';
                 handContainer.style.flexDirection = 'row';
                 handContainer.style.alignContent = 'center';
-                handContainer.style.justifyContent = 'space-between';
-                handContainer.style.gridRow = `0/${count + 1}`;
+                handContainer.style.justifyContent = 'space-evenly';
+                
                 handContainer.style.zIndex = '2';
-                handContainer.style.gridColumn = `0/${count + 1}`;
+                
                 handContainer.style.visibility = 'hidden'
                 handContainer.appendChild(playerTag)
                 let handList = ''
@@ -675,11 +726,12 @@ gameTable.addEventListener('click', (event) => {
                     // cardVal.style.position = 'absolute'
                     // console.log(cards.val+cards.suit)
                     // handList+=`${cards.mainValue},`
-                    cardVal.setAttribute('src', 'cards/RED_BACK.svg')
+                    cardVal.setAttribute('src', cardBImg)
                     userHandList.push(cards.mainValue)
 
-                    cardVal.style.height = '60%';
-                    cardVal.style.width = '20%';
+                    cardVal.style.height = '15vh';
+                    cardVal.style.width = '15vw';
+                    cardVal.style.position = 'relative'
                     handContainer.appendChild(cardVal)
 
                 }
@@ -688,7 +740,7 @@ gameTable.addEventListener('click', (event) => {
                 gameMenu.appendChild(playerShowHands)
                 gameBoard.appendChild(handContainer)
                 gameBoard.appendChild(playArea)
-                gameBoard.appendChild(gameInfo)
+                gameTable.appendChild(gameInfo)
                 mainDeck.hands.push(userHandList)
 
                 count++
@@ -729,7 +781,9 @@ gameTable.addEventListener('click', (event) => {
                             let cardSelected = event.target.parentNode.removeChild(event.target)
                             cardPicked = cardSelected
                             // console.log(document.querySelector('.playArea'))
-
+                            cardSelected.style.height = '25%';
+                            cardSelected.style.width = '15%';
+                            cardSelected.style.marginTop = '5%'
                             document.querySelector('.playArea').appendChild(cardSelected)
 
                             game.endTurn();
@@ -811,63 +865,64 @@ gameMenu.addEventListener('click', (event) => {
 
     }
 
-    //check if end turn is clicked 
-    if (targetClass === '.endTurn') {
-        // console.log(openHand)
-        if (openHand) {
-            document.querySelector(closeHand).style.visibility = 'hidden';
-            game.endTurn()
-        }
-        else {
-            // console.log(targetClass)
-            game.endTurn()
-        }
+    // //check if end turn is clicked 
+    // if (targetClass === '.endTurn') {
+    //     // console.log(openHand)
+    //     if (openHand) {
+    //         document.querySelector(closeHand).style.visibility = 'hidden';
+    //         game.endTurn()
+    //     }
+    //     else {
+    //         // console.log(targetClass)
+    //         game.endTurn()
+    //     }
 
-    }
+    // }
 
     //check if start game clicked then start the game
     if (targetClass === '.startGame') {
         // console.log(document.querySelector('.gameBoard'))
-        document.querySelector('.endTurn').style.display = 'block';
-        document.querySelector('.drawCard').style.display = 'block';
+        // document.querySelector('.endTurn').style.display = 'block';
+        // document.querySelector('.drawCard').style.display = 'block';
         // document.querySelector('.removeCard').style.display = 'block';
-        document.querySelector('.battle').style.display = 'block';
+        // document.querySelector('.battle').style.display = 'block';
         game = new Game(gameSelector.value, mainDeck,);
         game.gameSetup();
 
     }
 
-    //draw card 
-    if (targetClass === '.drawCard') {
-        game.handTotal()
-        // let userName = `.${game.currentUser.name}`
-        // // console.log(game.currentUser.hand,game.deck)
-        // game.deck.drawNumCard(document.querySelector(userName), prompt('how many to draw?'))
-    }
-    if (targetClass === '.removeCard') {
-        let userName = `.${game.currentUser.name}`
-        // console.log(game.currentUser.hand,game.deck)
+    // //draw card 
+    // if (targetClass === '.drawCard') {
+    //     game.handTotal()
+    //     // let userName = `.${game.currentUser.name}`
+    //     // // console.log(game.currentUser.hand,game.deck)
+    //     // game.deck.drawNumCard(document.querySelector(userName), prompt('how many to draw?'))
+    // }
+    // if (targetClass === '.removeCard') {
+    //     let userName = `.${game.currentUser.name}`
+    //     // console.log(game.currentUser.hand,game.deck)
 
-        game.deck.removeCard(document.querySelector(userName), 1)
+    //     game.deck.removeCard(document.querySelector(userName), 1)
 
 
-    }
-    if (targetClass === '.battle') {
-        let gameB = document.querySelector('.gameBoard')
-        for (let hands of gameB.children) {
+    // }
+    // if (targetClass === '.battle') {
+    //     let gameB = document.querySelector('.gameBoard')
+    //     for (let hands of gameB.children) {
 
-            if (hands.classList[0] === 'hand') {
-                // console.log(hands)
-                console.log(hands.children[1].value, hands.children[1].id)
-                // for(let hand in hands.children){
-                //     console.log(hands.children[1])
-                // }
+    //         if (hands.classList[0] === 'hand') {
+    //             // console.log(hands)
+    //             console.log(hands.children[1].value, hands.children[1].id)
+    //             // for(let hand in hands.children){
+    //             //     console.log(hands.children[1])
+    //             // }
 
-            }
-        }
+    //         }
+    //     }
 
-    }
+    // }
 
 })
+
 
 
